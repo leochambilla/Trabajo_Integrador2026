@@ -4,6 +4,6 @@ el proyecto que vamos realizar esta en basado en usar un programa de python usan
 En la primera entrega se va implementar la lectura y parseo del archivo TXT, junto con un modulo destinado a realizar las validaciones necesarias.
 
 
-#Grupo: Los de Pepsi
+##Grupo: Los de Pepsi
 Integrantes:
 Leo Chambilla  - Enzo Jones
