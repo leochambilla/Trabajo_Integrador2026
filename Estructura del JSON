@@ -1,3 +1,14 @@
 {
-  
+    "datos": [
+        {
+            "estacion": "ubicacion",
+            "fecha": "19082026",
+            "hora": 9,
+            "temperatura": 7.0,
+            "humedad": 59,
+            "presion": 1023.8,
+            "direccion_viento": 220,
+            "velocidad_viento": 7
+        }
+    ]
 }
