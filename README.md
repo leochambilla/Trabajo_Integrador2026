@@ -31,8 +31,6 @@ Para utilizar el programa se necesita utilizar como requisito:
 - Visual Studio Code
 - Un entorno virtual de Python (`.venv`)
 
-No se utilizan librerías externas.
-
 ## Implementar
 
 Desde la terminal, ubicándose en la carpeta del proyecto, se ejecuta:
