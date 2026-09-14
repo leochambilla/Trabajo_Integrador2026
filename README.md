@@ -12,8 +12,8 @@ El programa permite separar los registros válidos de aquellos que presentan alg
 
 **Integrantes:**
 
-- Leo Chambilla
-- Enzo Jones
+ Leo Chambilla
+ Enzo Jones
 
 ## Archivos del proyecto
 
@@ -27,7 +27,7 @@ El programa permite separar los registros válidos de aquellos que presentan alg
 
 Para utilizar el programa se necesita utilizar como requisito:
 
-- Python 3
+- Una version Python
 - Visual Studio Code
 - Un entorno virtual de Python (`.venv`)
 
