@@ -2,10 +2,6 @@ def validar_vacio(dato):
     return dato.strip() != ""
 
 
-def validar_dato(dato):
-    return validar_vacio(dato)
-
-
 def es_numero(dato):
     try:
         float(dato)
@@ -48,3 +44,38 @@ def velocidad_valida(velocidad):
     velocidad = float(velocidad)
 
     return velocidad >= 0
+
+
+def fecha_valida(fecha):
+    if len(fecha) != 8:
+        return False
+
+    if not es_numero(fecha):
+        return False
+
+    dia = int(fecha[0:2])
+    mes = int(fecha[2:4])
+    anio = int(fecha[4:8])
+
+    if mes < 1 or mes > 12:
+        return False
+
+    if dia < 1 or dia > 31:
+        return False
+
+    if anio < 1:
+        return False
+
+    return True
+
+
+def temperatura_valida(temperatura):
+    return es_numero(temperatura)
+
+
+def presion_valida(presion):
+    return es_numero(presion)
+
+
+def estacion_valida(estacion):
+    return validar_vacio(estacion)
