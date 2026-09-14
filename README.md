@@ -25,15 +25,15 @@ El programa permite separar los registros válidos de aquellos que presentan alg
 
 ## Requisitos
 
-Para ejecutar el proyecto se necesita:
+Para utilizar el programa se necesita utilizar como requisito:
 
-- Python 3
+- Python
 - Visual Studio Code
 - Un entorno virtual de Python (`.venv`)
 
 No se utilizan librerías externas.
 
-## Ejecución
+## Implementar
 
 Desde la terminal, ubicándose en la carpeta del proyecto, se ejecuta:
 
