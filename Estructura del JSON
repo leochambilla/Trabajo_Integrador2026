@@ -1,14 +1,29 @@
+ESTRUCTURA DEL JSON
+
+El archivo JSON contiene los registros procesados a partir del archivo TXT.
+
+La estructura general es:
+
 {
-    "datos": [
+    "total_registros": 1816,
+    "registros_validos": 1589,
+    "registros_invalidos": 227,
+    "validos": [
         {
-            "estacion": "ubicacion",
             "fecha": "19082026",
-            "hora": 9,
-            "temperatura": 7.0,
-            "humedad": 59,
-            "presion": 1023.8,
-            "direccion_viento": 220,
-            "velocidad_viento": 7
+            "hora": "0",
+            "temperatura": "9.3",
+            "humedad": "78",
+            "presion": "1023.2",
+            "direccion": "140",
+            "velocidad": "11",
+            "estacion": "AEROPARQUE AERO"
         }
+    ],
+    "invalidos": [
+        [
+            "línea original del archivo TXT",
+            "motivo del error"
+        ]
     ]
 }
