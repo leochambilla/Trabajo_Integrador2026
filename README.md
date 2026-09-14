@@ -27,7 +27,7 @@ El programa permite separar los registros válidos de aquellos que presentan alg
 
 Para utilizar el programa se necesita utilizar como requisito:
 
-- Python
+- Python 3
 - Visual Studio Code
 - Un entorno virtual de Python (`.venv`)
 
