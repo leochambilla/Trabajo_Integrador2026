@@ -6,6 +6,10 @@ Este proyecto consiste en desarrollar un programa en Python capaz de leer un arc
 
 El programa permite separar los registros válidos de aquellos que presentan algún error.
 
+
+## Objetivo 
+El objetivo del programa es interpretar los datos de un archivo TXT y organizarlos en un archivo JSON 
+Además, se busca detectar registros que contengan datos incorrectos y conservarlos indicando el motivo del error.
 ## Integrantes
 
 **Grupo:** Los de Pepsi
@@ -27,7 +31,7 @@ El programa permite separar los registros válidos de aquellos que presentan alg
 
 Para utilizar el programa se necesita utilizar como requisito:
 
-- Una version Python
+- Usar una version Python
 - Visual Studio Code
 - Un entorno virtual de Python (`.venv`)
 
