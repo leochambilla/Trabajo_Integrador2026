@@ -1,81 +1,167 @@
-def validar_vacio(dato):
-    return dato.strip() != ""
+import sys
+import json
 
 
-def es_numero(dato):
-    try:
-        float(dato)
-        return True
-    except ValueError:
-        return False
+from validaciones import (
+    fecha_valida,
+    hora_valida,
+    temperatura_valida,
+    humedad_valida,
+    presion_valida,
+    direccion_valida,
+    velocidad_valida,
+    estacion_valida
+)
 
 
-def hora_valida(hora):
-    if not es_numero(hora):
-        return False
-
-    hora = int(hora)
-
-    return 0 <= hora <= 23
-
-
-def humedad_valida(humedad):
-    if not es_numero(humedad):
-        return False
-
-    humedad = float(humedad)
-
-    return 0 <= humedad <= 100
+if len(sys.argv) < 3:
+    print("Faltan argumentos.")
+    print("Uso tiene que ser: python datos.py archivo.txt archivo.json")
+    sys.exit()
+def validar_registro(registro):
+#Esto sirve para que si alguien escribe solamente desde la terminal:
+#python datos.py
+#el programa no se rompa
 
 
-def direccion_valida(direccion):
-    if not es_numero(direccion):
-        return False
 
-    direccion = float(direccion)
+    if len(registro) < 8:
+        return "Registro incompleto"
 
-    return 0 <= direccion <= 360
+    if not fecha_valida(registro[0]):
+        return "Fecha incorrecta"
 
+    if not hora_valida(registro[1]):
+        return "Hora incorrecta"
 
-def velocidad_valida(velocidad):
-    if not es_numero(velocidad):
-        return False
+    if not temperatura_valida(registro[2]):
+        return "Temperatura incorrecta"
 
-    velocidad = float(velocidad)
+    if not humedad_valida(registro[3]):
+        return "Humedad incorrecta"
 
-    return velocidad >= 0
+    if not presion_valida(registro[4]):
+        return "Presion incorrecta"
 
+    if not direccion_valida(registro[5]):
+        return "Direccion incorrecta"
 
-def fecha_valida(fecha):
-    if len(fecha) != 8:
-        return False
+    if not velocidad_valida(registro[6]):
+        return "Velocidad incorrecta"
 
-    if not es_numero(fecha):
-        return False
+    estacion = " ".join(registro[7:])
 
-    dia = int(fecha[0:2])
-    mes = int(fecha[2:4])
-    anio = int(fecha[4:8])
+    if not estacion_valida(estacion):
+        return "Estacion incorrecta"
 
-    if mes < 1 or mes > 12:
-        return False
-
-    if dia < 1 or dia > 31:
-        return False
-
-    if anio < 1:
-        return False
-
-    return True
+    return ""
 
 
-def temperatura_valida(temperatura):
-    return es_numero(temperatura)
+def convertir_registro(registro):
+
+    estacion = " ".join(registro[7:])
+
+    nuevo_registro = {
+        "fecha": registro[0],
+        "hora": registro[1],
+        "temperatura": registro[2],
+        "humedad": registro[3],
+        "presion": registro[4],
+        "direccion": registro[5],
+        "velocidad": registro[6],
+        "estacion": estacion
+    }
+
+    return nuevo_registro
 
 
-def presion_valida(presion):
-    return es_numero(presion)
+try:
+    archivo = open(sys.argv[1], "r") #esto interactua con el TXT y lo lee
+except: 
+    print("No se pudo abrir el archivo de entrada, verifique si existe")
+    print()
+    sys.exit()
+#Esto nos ayuda que si el txt no existe o no se puede abrir, nos muestre un mensaje 
+
+registros_validos = []
+registros_invalidos = []
+errores = []
+cantidad = 0
 
 
-def estacion_valida(estacion):
-    return validar_vacio(estacion)
+for linea in archivo:
+
+    linea = linea.strip()
+
+    if linea != "":
+
+        datos = linea.split()
+
+        if datos[0] != "FECHA" and datos[0] != "[HOA]":
+
+           if len(datos) >= 7 and len(datos[0]) == 8:
+
+              cantidad = cantidad + 1
+
+              error = validar_registro(datos)
+
+              if error == "":
+                 registro_nuevo = convertir_registro(datos)
+                 registros_validos.append(registro_nuevo)
+              else:
+                 registros_invalidos.append([linea, error])
+                 errores.append(error)
+
+archivo.close()
+
+datos_json = {
+    "total_registros": cantidad,
+    "registros_validos": len(registros_validos),
+    "registros_invalidos": len(registros_invalidos),
+    "validos": registros_validos,
+    "invalidos": registros_invalidos
+}
+
+
+try:
+    salida = open(sys.argv[2], "w") #esto crea el JSON
+
+    json.dump(datos_json, salida, indent=4)
+#Lo que hace es tomar el segundo argumento de la terminal.
+#sys.argv[0] datos.py
+#sys.argv[1] datohorario20260819.txt
+#sys.argv[2] observaciones.json
+    salida.close()
+except:
+    print("no se puede crear un archivo de salida.")
+    sys.exit()
+print("RESUMEN")
+print()
+print("Cantidad de registros:", cantidad)
+print("Registros validos:", len(registros_validos))
+print("Registros invalidos:", len(registros_invalidos))
+
+print()
+print("ERRORES ENCONTRADOS")
+print()
+
+
+tipos_de_error = []
+
+for error in errores:
+
+    if error not in tipos_de_error:
+        tipos_de_error.append(error)
+
+
+
+for tipo in tipos_de_error:
+
+    cantidad_error = 0
+
+    for error in errores:
+
+        if error == tipo:
+            cantidad_error = cantidad_error + 1
+
+    print(tipo + ":", cantidad_error)
