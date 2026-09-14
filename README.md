@@ -1,13 +1,41 @@
 # Trabajo_Integrador2026
-## El conversor de archivo txt a Json 
-el proyecto que vamos realizar esta en basado en usar un programa de python usando un archivo de texto (txt), que permite procesarla y transformarla en una estructura de datos que posteriormente sera utilizado para generar un archivo JSON de datos meteorologicos este caso vamos investigar sobre, El servicio meteorologico nacional de argentina.
-En la primera entrega se va implementar la lectura y parseo del archivo TXT, junto con un modulo destinado a realizar las validaciones necesarias.
 
+## Conversor de archivo TXT a JSON
 
-Grupo: Los de Pepsi
+Este proyecto consiste en desarrollar un programa en Python capaz de leer un archivo de observaciones meteorológicas en formato TXT, validar sus datos y generar un archivo JSON.
 
+El programa permite separar los registros válidos de aquellos que presentan algún error.
 
-Integrantes:
+## Integrantes
 
+**Grupo:** Los de Pepsi
 
-Leo Chambilla  - Enzo Jones
+**Integrantes:**
+
+- Leo Chambilla
+- Enzo Jones
+
+## Archivos del proyecto
+
+- `datos.py`: contiene el programa principal.
+- `validaciones.py`: contiene las funciones utilizadas para validar los datos.
+- `datohorario20260819.txt`: archivo de entrada con las observaciones meteorológicas.
+- `observaciones.json`: archivo generado con los resultados.
+- `README.md`: documentación del proyecto.
+
+## Requisitos
+
+Para ejecutar el proyecto se necesita:
+
+- Python 3
+- Visual Studio Code
+- Un entorno virtual de Python (`.venv`)
+
+No se utilizan librerías externas.
+
+## Ejecución
+
+Desde la terminal, ubicándose en la carpeta del proyecto, se ejecuta:
+
+```text
+python datos.py datohorario20260819.txt observaciones.json
