@@ -1,7 +1,4 @@
 ESTRUCTURA DEL JSON
-
-El archivo JSON contiene los registros procesados a partir del archivo TXT.
-
 La estructura general es:
 
 {
