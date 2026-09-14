@@ -1,6 +1,3 @@
-ESTRUCTURA DEL JSON
-La estructura general es:
-
 {
     "total_registros": 1816,
     "registros_validos": 1589,
@@ -19,7 +16,7 @@ La estructura general es:
     ],
     "invalidos": [
         [
-            "línea original del archivo TXT",
+            "línea original del archivo",
             "motivo del error"
         ]
     ]
