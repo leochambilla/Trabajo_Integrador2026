@@ -36,7 +36,7 @@ En la segunda parte del trabajo, se utilizan los datos del JSON para filtrar obs
 - `app_web/graficos.py`: genera gráficos de líneas y los guarda en formato PNG.
 - `app_web/procesar_datos.py`: permite ejecutar el procesamiento desde la terminal.
 - `app_web/salidas/`: carpeta donde se guardan los archivos CSV y los gráficos generados.
-- `app_web/app.py`: archivo destinado a la aplicación web de la segunda etapa.
+- `app_web/app.py`: archivo previsto para desarrollar la aplicación web en la segunda etapa.
 
 ## Requisitos
 
