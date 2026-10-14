@@ -42,7 +42,7 @@ En la segunda parte del trabajo, se utilizan los datos del JSON para filtrar obs
 
 Para utilizar el programa se necesita:
 
-- Python 3.
+- Python 3.14
 - Visual Studio Code, como editor de código.
 - Un entorno virtual de Python (`.venv`).
 - Matplotlib, para generar los gráficos.
